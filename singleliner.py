@@ -7,20 +7,30 @@ class SingleLineCommand(sublime_plugin.TextCommand):
 		for region in self.view.sel():
 		    if not region.empty():
 		        s = self.view.substr(region)
+		        result=[]
 
-		        pattern = re.compile(r'^(.*)(\{[\S\s]*\}\s*\;?\s*)$')
+		        pattern = re.compile(r'^(.*\{)([\S\s]*)(\}[\S\s]*)$')
 
-		        match = pattern.match(s)
+		        arr=s.split('=')
 
-		        if match:
-		        	dec = match.group(1)
-		        	obj = match.group(2)
+		        for i,a in enumerate(arr):
+		        	match = pattern.match(a)
 
-		        obj = re.sub('\s', '', obj)
+		        	if match:
+		        		prefix = match.group(1)
+		        		obj = match.group(2)
+		        		postfix = match.group(3)
 
-		        obj = re.sub('{', '{ ', obj)
-		        obj = re.sub(':', ': ', obj)
-		        obj = re.sub(',', ', ', obj)
-		        obj = re.sub('}', ' }', obj)
+		        		obj = re.sub('\s', '', obj)
 
-		        self.view.replace(edit, region, dec + obj)
+		        		prefix = re.sub('{', '{ ', prefix)
+		        		obj = re.sub(':', ': ', obj)
+		        		obj = re.sub(',', ', ', obj)
+		        		postfix = re.sub('}', ' }', postfix)
+
+		        		result.append(''.join([prefix, obj, postfix]))
+
+		        	else:
+		        		result.append(a)
+
+		        self.view.replace(edit, region, '='.join(result))
