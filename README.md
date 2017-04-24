@@ -8,7 +8,7 @@ So I need SingleLiner.
 
 ## Using
 
-Define an object:
+### Define an object
 ```
 const obj = {
   foo,
@@ -20,11 +20,11 @@ then:
 const obj = { foo, bar: 123 }
 ```
 
-When use destructuring assignment:
+### When use destructuring assignment
 ```
 const {
-	code,
-	data
+  code,
+  data
 } = response
 ```
 then:
@@ -32,12 +32,12 @@ then:
 const { code, data } = response
 ```
 
-Also works for nested Object:
+### Also works for nested Object
 ```
 const obj = {
-	foo: 123,
-	bar
-	baz: { qux }
+  foo: 123,
+  bar
+  baz: { qux }
 }
 ```
 then:
