@@ -6,6 +6,23 @@ But JS Formatter always try to unfold Objects.
 
 So I need SingleLiner.
 
+## Install
+Open sublime, go to `Preferences -> Browse packages...`, and download `singleliner` to this directory:
+
+```
+git clone git@github.com:JeremyFan/sublime-singleliner.git
+```
+
+## Config
+Go to `Preferences -> Key Bindings`, and config a shortcut you like, for example `ctrl + shift + s`:
+
+```
+{
+  "keys": ["ctrl+shift+s"],
+  "command": "single_line"
+}
+```
+
 ## Using
 
 ### Define an object
