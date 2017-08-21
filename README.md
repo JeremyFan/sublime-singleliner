@@ -1,3 +1,13 @@
+**NO NEED FOR THIS PLUGIN.**
+
+If you're using a format plugin based on [js-beautify](https://github.com/beautify-web/js-beautify), such as [Sublime JsFormat](https://github.com/jdc0589/JsFormat), you have a config perfectly for this:
+
+```
+"brace_style": "collapse-preserve-inline"
+```
+
+---
+
 # Sublime-SingleLiner
 
 Sometimes I want a single line Object when writting JavaScript.
